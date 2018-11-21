@@ -35,7 +35,7 @@
 </script>
 <style>
 .app-container{
-    padding-top:40px;
+
 	overflow-X:hidden;
 }
 .v-enter{

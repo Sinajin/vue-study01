@@ -13,9 +13,6 @@
 		        <ul class="mui-table-view mui-grid-view mui-grid-9">
 
                 <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
-              <img src="../../images/menu2.png" alt="">
-              <div class="mui-media-body">图片分享</div></a></li>
-                <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
               <img src="../../images/menu3.png" alt="">
               <div class="mui-media-body">商品购买</div></a></li>
                 <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
@@ -43,7 +40,6 @@ export default {
     },
     methods:{
         getBanner(){
-
 
             //    console.log(result.body);
             if(result.body.status ===0){

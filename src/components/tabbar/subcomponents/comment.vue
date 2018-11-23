@@ -2,8 +2,7 @@
     <div class="cmt-container">
         <h3>发表评论</h3>
         <hr>
-        <textarea placeholder ="请输入要说的内容" maxlength="120"></textarea>
-        <mt-button type="primary" size="large">发表评论</mt-button>
+
         
         <div class="cmt-list">
             <div class="cmt-item" v-for="(item, i) in comments" :key="item.add_time">
@@ -24,7 +23,7 @@ export default {
     data(){
         return{
             pageIndex:1,
-            comments:[]
+
         }
     },
     created(){
@@ -44,6 +43,7 @@ export default {
         getMore(){
             this.pageIndex++;
             this.getComments();
+
         }
     },
     props:["id"]

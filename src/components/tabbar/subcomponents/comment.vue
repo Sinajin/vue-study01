@@ -2,7 +2,8 @@
     <div class="cmt-container">
         <h3>发表评论</h3>
         <hr>
-
+        <textarea v-model="msg" placeholder ="请输入要说的内容" maxlength="120"></textarea>
+        <mt-button @click="postComment" type="primary" size="large">发表评论</mt-button>
         
         <div class="cmt-list">
             <div class="cmt-item" v-for="(item, i) in comments" :key="item.add_time">
@@ -23,7 +24,8 @@ export default {
     data(){
         return{
             pageIndex:1,
-
+            comments:[],
+            msg:""
         }
     },
     created(){
@@ -43,7 +45,24 @@ export default {
         getMore(){
             this.pageIndex++;
             this.getComments();
-
+        },
+        postComment(){
+            if(this.msg.trim().length === 0){
+                return Toast("评论内容不能为空!");
+            }
+            this.$http.post("api/postcomment/" + this.id, {content:this.msg.trim()}).then(function(result){
+                if(result.body.status ===0){
+                    // console.log(result);
+                    
+                    //  this.comments.unshift(msg);
+                    this.pageIndex = 1;
+                    this.comments =[]
+                    this.msg = "";
+                    this.getComments()
+                   
+                     
+                }
+            })
         }
     },
     props:["id"]
